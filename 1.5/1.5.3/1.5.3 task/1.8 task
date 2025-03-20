@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main(void)
+{
+    char c;
+     
+    int space = 0;
+    int tabulation = 0;
+    int new_linie = 0;
+
+    while ((c = getchar()) != EOF){
+        if (c == ' '){
+            ++space;
+        } else if (c == '\t'){
+            ++tabulation;
+        } else if (c == '\n'){
+            ++new_linie;
+        }
+    }
+
+    printf("space: %d\ntabulation: %d\nnew_linie: %d\n", space, tabulation, new_linie);
+    
+    return (0);
+
+}
