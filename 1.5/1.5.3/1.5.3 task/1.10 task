@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main(void) {
+  char c;
+  
+  while ((c = getchar()) != EOF) {
+    if (c == '\t') {
+      putchar ('\t');
+      putchar ('\\');
+    } 
+    else if (c == '\b') {
+      putchar ('\b');
+      putchar ('\\');
+    }
+    else if (c == '\\') {
+      putchar ('\\');
+      putchar ('\\');
+    }
+    else {
+      putchar (c);
+    }
+    
+  }
+}
