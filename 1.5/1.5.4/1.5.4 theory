@@ -1,22 +1,21 @@
-#include <stdio.h> 
+#include <stdio.h>
 
-#define IN 1 /* внутри слова */
-#define OUT 0 /* вне слова */
+#define IN 1
+#define OUT 0
 
-/* подсчет строк, слов и символов */
-
-int main(void) {
-
-  int c, nl, nw, nc, state;
-  state = OUT;
-  nl = nw = nc = 0;
+int main(void)
+{
+  int c, state, nst, nw, ns;
   
-  while ((c = getchar()) != EOF) {
-    ++nc;
+  state = OUT;
+  nst = nw = ns = 0;
+  
+  while ((c = getchar()) != EOF){
+    ++ns;
     if (c == '\n') {
-        ++nl;
+      ++nst;
     }
-    if (c == " " || c == '\n || c == '\t'') {
+    else if (c == ' ' || c == '\n' || c == '\t') {
       state = OUT;
     }
     else if (state == OUT) {
@@ -24,6 +23,8 @@ int main(void) {
       ++nw;
     }
   }
-
-  printf ("%d %d %d\n", nl, nw, nc);
+  
+  printf("string: %d\nwords: %d\nsymvole: %d\n", nst, nw, ns);
+  return 0;
+  
 }
