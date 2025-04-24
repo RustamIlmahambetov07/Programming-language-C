@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+#define IN 1
+#define OUT 0
+
+int main()
+{
+    char c;
+
+    int nl, nw, ns, state;
+
+    nl = 0;
+    nw = 0;
+    ns = 0;
+    
+    state = OUT;
+
+    while ((c = getchar()) != EOF) {
+        ++ns;
+
+        if (c == '\n'){
+            ++nl;
+        }
+        if (c == ' ' || c == '\n' || c == '\t') {
+            state = OUT;
+        }
+        else if (state == OUT) {
+            state = IN;
+            ++nw;
+        }
+    }
+
+    printf("nl: %d\nnw: %d\nns: %d\n", nl, ns, nw);
+    return 0;
+}
